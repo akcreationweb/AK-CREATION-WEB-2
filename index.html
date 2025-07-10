@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Website</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
+    header .logo { display: flex; align-items: center; }
+    header .logo img { height: 40px; margin-right: 10px; }
+    nav button { margin: 0 5px; padding: 8px 16px; border: 1px solid red; border-radius: 4px; background: white; color: red; cursor: pointer; }
+    nav button.active, nav button:hover { background: red; color: white; }
+    main { padding: 20px; }
+    section { display: none; }
+    section.active { display: block; }
+    a.download { color: blue; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Logo" />
+    <span>My Website</span>
+  </div>
+  <nav>
+    <button data-tab="home" class="active">Home</button>
+    <button data-tab="media">Media Links</button>
+    <button data-tab="documents">Documents</button>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="active">
+    <h1 style="color:red;">Welcome to Home</h1>
+    <p>Customizable homepage content here.</p>
+  </section>
+
+  <section id="media">
+    <h1 style="color:red;">Media Links</h1>
+    <ul>
+      <li><a href="#" class="download">YouTube Channel</a></li>
+      <li><a href="#" class="download">Instagram</a></li>
+      <li><a href="#" class="download">LinkedIn</a></li>
+    </ul>
+  </section>
+
+  <section id="documents">
+    <h1 style="color:red;">Documents</h1>
+    <ul>
+      <li><a href="resume.pdf" class="download" download>Download Resume</a></li>
+      <li><a href="portfolio.pdf" class="download" download>Download Portfolio</a></li>
+    </ul>
+  </section>
+</main>
+
+<script>
+  const buttons = document.querySelectorAll('nav button');
+  const sections = document.querySelectorAll('main section');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = btn.dataset.tab;
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

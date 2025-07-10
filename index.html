@@ -231,7 +231,9 @@
   photos.forEach((photo, index) => {
     const img = document.createElement("img");
     img.src = photo.url;
-    img.classList.add(index === 0 ? "active" : "");
+    if (index === 0) {
+      img.classList.add("active");
+    }
     img.addEventListener("click", () => {
       window.open(photo.link, "_blank");
     });

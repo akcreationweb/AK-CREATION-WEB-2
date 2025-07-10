@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #000; /* Dark background */
+      background-color: #000;
       color: white;
     }
 
@@ -85,13 +85,24 @@
       margin-bottom: 20px;
       border-radius: 8px;
       overflow: hidden;
+      height: 300px;
     }
 
-    .cover-photo {
+    .cover-photo-wrapper img {
       width: 100%;
-      max-height: 300px;
+      height: 100%;
       object-fit: cover;
-      filter: brightness(0.6); /* Add dark overlay effect */
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      cursor: pointer;
+    }
+
+    .cover-photo-wrapper img.active {
+      opacity: 1;
+      z-index: 2;
     }
 
     .icon-link {
@@ -156,8 +167,8 @@
 
   <main>
     <section id="home" class="active">
-      <div class="cover-photo-wrapper">
-        <img src="https://raw.githubusercontent.com/icantunderstand1/Photos/main/20250429_221332_111459.png" alt="Cover Photo" class="cover-photo" />
+      <div class="cover-photo-wrapper" id="slider">
+        <!-- Images will be added via JavaScript -->
       </div>
       <h1 style="color:red;">WELCOME TO AK CREATION OFFICIAL WEB PAGE</h1>
       <p>THIS IS OUR MAIN WEB PAGE. YOU CAN VISIT OUR SOCIAL MEDIA PLATFORMS USING THE MEDIA LINKS TAB.</p>
@@ -197,12 +208,41 @@
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
       const tab = btn.dataset.tab;
       sections.forEach(sec => sec.classList.remove('active'));
       document.getElementById(tab).classList.add('active');
     });
   });
+
+  // Cover photo slideshow
+  const photos = [
+    { url: "https://raw.githubusercontent.com/icantunderstand1/Photos/main/20250429_221332_111459.png", link: "https://youtube.com/@sl_ak_gaming_" },
+    { url: "https://raw.githubusercontent.com/icantunderstand1/Photos/main/20250429_221332_111460.png", link: "https://wa.me/94771234567" },
+    { url: "https://raw.githubusercontent.com/icantunderstand1/Photos/main/20250429_221332_111461.png", link: "https://www.tiktok.com/@_ak_gaming_1_" },
+    { url: "https://raw.githubusercontent.com/icantunderstand1/Photos/main/20250429_221332_111462.png", link: "https://www.instagram.com" },
+    { url: "https://raw.githubusercontent.com/icantunderstand1/Photos/main/20250429_221332_111463.png", link: "https://www.facebook.com" },
+    { url: "https://raw.githubusercontent.com/icantunderstand1/Photos/main/20250429_221332_111464.png", link: "https://www.github.com" },
+  ];
+
+  const slider = document.getElementById("slider");
+
+  photos.forEach((photo, index) => {
+    const img = document.createElement("img");
+    img.src = photo.url;
+    img.classList.add(index === 0 ? "active" : "");
+    img.addEventListener("click", () => {
+      window.open(photo.link, "_blank");
+    });
+    slider.appendChild(img);
+  });
+
+  let current = 0;
+  setInterval(() => {
+    const images = slider.querySelectorAll("img");
+    images[current].classList.remove("active");
+    current = (current + 1) % images.length;
+    images[current].classList.add("active");
+  }, 4000); // 4 seconds
 </script>
 
 </body>

@@ -4,9 +4,16 @@
   <meta charset="UTF-8" />
   <title>AK CREATION</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Sinhala UN-Gamunu Font Load -->
   <style>
+    @font-face {
+      font-family: 'UN-Gamunu';
+      src: url('https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/UN-Gamunu.ttf') format('truetype');
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'UN-Gamunu', Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #000;
@@ -173,7 +180,7 @@
         <!-- Images will be added via JavaScript -->
       </div>
       <h1 style="color:red;">WELCOME TO AK CREATION OFFICIAL WEB PAGE</h1>
-      <p>THIS IS OUR MAIN WEB PAGE. YOU CAN VISIT OUR SOCIAL MEDIA PLATFORMS USING THE MEDIA LINKS TAB.</p>
+      <p>මෙය අපේ ප්‍රධාන වෙබ් පිටුවයි. මෙහිදී ඔබට අපේ සමාජ මාධ්‍ය පිටු වෙත පිවිසිය හැක.</p>
     </section>
 
     <section id="media">
@@ -246,7 +253,7 @@
     images[current].classList.remove("active");
     current = (current + 1) % images.length;
     images[current].classList.add("active");
-  }, 4000); // 4 seconds
+  }, 4000);
 </script>
 
 </body>

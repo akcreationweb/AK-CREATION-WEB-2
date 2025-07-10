@@ -2,65 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Website</title>
+  <title>AK CREATION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
-    header .logo { display: flex; align-items: center; }
-    header .logo img { height: 40px; margin-right: 10px; }
-    nav button { margin: 0 5px; padding: 8px 16px; border: 1px solid red; border-radius: 4px; background: white; color: red; cursor: pointer; }
-    nav button.active, nav button:hover { background: red; color: white; }
-    main { padding: 20px; }
-    section { display: none; }
-    section.active { display: block; }
-    a.download { color: blue; text-decoration: underline; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* Dark background */
+      color: white;
+    }
+
+    .container {
+      background: rgba(20, 20, 20, 0.95);
+      max-width: 1000px;
+      margin: auto;
+      padding-bottom: 40px;
+    }
+
+    header {
+      background: #1a1a1a;
+      box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      color: white;
+      font-weight: bold;
+    }
+
+    header .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav button {
+      margin: 5px 5px;
+      padding: 8px 16px;
+      border: 1px solid red;
+      border-radius: 4px;
+      background: black;
+      color: red;
+      cursor: pointer;
+    }
+
+    nav button.active,
+    nav button:hover {
+      background: red;
+      color: white;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    a.download {
+      color: #4da6ff;
+      text-decoration: underline;
+    }
+
+    .cover-photo-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .cover-photo {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      filter: brightness(0.6); /* Add dark overlay effect */
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      border: 1px solid #ccc;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: #111;
+      transition: background 0.3s;
+    }
+
+    .icon-link:hover {
+      background: #333;
+    }
+
+    .icon-link img {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header .logo img {
+        height: 30px;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav button {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">
-    <img src="logo.png" alt="Logo" />
-    <span>My Website</span>
-  </div>
-  <nav>
-    <button data-tab="home" class="active">Home</button>
-    <button data-tab="media">Media Links</button>
-    <button data-tab="documents">Documents</button>
-  </nav>
-</header>
+<div class="container">
+  <header>
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/icantunderstand1/Photos/main/IMG-20250614-WA0000.jpg" alt="Logo" />
+      <span>AK CREATION</span>
+    </div>
+    <nav>
+      <button data-tab="home" class="active">Home</button>
+      <button data-tab="media">Media Links</button>
+      <button data-tab="documents">Documents</button>
+    </nav>
+  </header>
 
-<main>
-  <section id="home" class="active">
-    <h1 style="color:red;">Welcome to Home</h1>
-    <p>Customizable homepage content here.</p>
-  </section>
+  <main>
+    <section id="home" class="active">
+      <div class="cover-photo-wrapper">
+        <img src="https://raw.githubusercontent.com/icantunderstand1/Photos/main/20250429_221332_111459.png" alt="Cover Photo" class="cover-photo" />
+      </div>
+      <h1 style="color:red;">WELCOME TO AK CREATION OFFICIAL WEB PAGE</h1>
+      <p>THIS IS OUR MAIN WEB PAGE. YOU CAN VISIT OUR SOCIAL MEDIA PLATFORMS USING THE MEDIA LINKS TAB.</p>
+    </section>
 
-  <section id="media">
-    <h1 style="color:red;">Media Links</h1>
-    <ul>
-      <li><a href="#" class="download">YouTube Channel</a></li>
-      <li><a href="#" class="download">Instagram</a></li>
-      <li><a href="#" class="download">LinkedIn</a></li>
-    </ul>
-  </section>
+    <section id="media">
+      <h1 style="color:red;">Media Links</h1>
+      <a class="icon-link" href="https://www.youtube.com/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" />
+        YouTube Channel
+      </a><br />
+      <a class="icon-link" href="https://wa.me/94771234567" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+        WhatsApp
+      </a><br />
+      <a class="icon-link" href="https://www.tiktok.com/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/TikTok_logo.svg" alt="TikTok" />
+        TikTok
+      </a>
+    </section>
 
-  <section id="documents">
-    <h1 style="color:red;">Documents</h1>
-    <ul>
-      <li><a href="resume.pdf" class="download" download>Download Resume</a></li>
-      <li><a href="portfolio.pdf" class="download" download>Download Portfolio</a></li>
-    </ul>
-  </section>
-</main>
+    <section id="documents">
+      <h1 style="color:red;">Documents</h1>
+      <ul>
+        <li><a href="resume.pdf" class="download" download>Download Resume</a></li>
+        <li><a href="portfolio.pdf" class="download" download>Download Portfolio</a></li>
+      </ul>
+    </section>
+  </main>
+</div>
 
 <script>
   const buttons = document.querySelectorAll('nav button');
   const sections = document.querySelectorAll('main section');
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
       const tab = btn.dataset.tab;
       sections.forEach(sec => sec.classList.remove('active'));
       document.getElementById(tab).classList.add('active');

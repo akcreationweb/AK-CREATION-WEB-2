@@ -167,9 +167,7 @@
 
   <main>
     <section id="home" class="active">
-      <div class="cover-photo-wrapper" id="slider">
-        <!-- Images will be added via JavaScript -->
-      </div>
+      <div class="cover-photo-wrapper" id="slider"></div>
       <h1 style="color:red;">WELCOME TO AK CREATION OFFICIAL WEB PAGE</h1>
       <p>THIS IS OUR MAIN WEB PAGE. YOU CAN VISIT OUR SOCIAL MEDIA PLATFORMS USING THE MEDIA LINKS TAB.</p>
     </section>
@@ -214,7 +212,7 @@
     });
   });
 
-  // Cover photo slideshow
+  // Slideshow
   const photos = [
     { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-23.jpg", link: "https://youtu.be/rWqsP6X4Frs?si=TacxHNm_0YL2mE7X" },
     { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg", link: "https://youtu.be/55tbrehlcLg?si=Dao3bYjUL4tDOYTr" },
@@ -229,7 +227,7 @@
   photos.forEach((photo, index) => {
     const img = document.createElement("img");
     img.src = photo.url;
-    img.classList.add(index === 0 ? "active" : "");
+    if (index === 0) img.classList.add("active");
     img.addEventListener("click", () => {
       window.open(photo.link, "_blank");
     });
@@ -242,7 +240,7 @@
     images[current].classList.remove("active");
     current = (current + 1) % images.length;
     images[current].classList.add("active");
-  }, 4000); // 4 seconds
+  }, 4000);
 </script>
 
 </body>

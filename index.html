@@ -138,6 +138,79 @@
       height: 24px;
     }
 
+    /* Gaming Card Styles */
+    .game-card {
+      display: flex;
+      width: 340px;
+      height: 120px;
+      border-radius: 0px;
+      background-color: #1a1a1a;
+      border: 2px solid red;
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      margin-top: 20px;
+      animation: slideFadeIn 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes slideFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .game-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.6);
+    }
+
+    .game-card:active {
+      transform: scale(0.97);
+      box-shadow: 0 0 20px red;
+    }
+
+    .game-card img {
+      width: 45%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 12px;
+      color: white;
+      width: 55%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .card-content h3 {
+      color: red;
+      margin: 0 0 8px;
+      font-size: 1em;
+    }
+
+    .card-content button {
+      background-color: red;
+      color: white;
+      padding: 6px 12px;
+      font-size: 0.85em;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .card-content button:hover {
+      background-color: #ff3333;
+    }
+
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -176,11 +249,18 @@
 
   <main>
     <section id="home" class="active">
-      <div class="cover-photo-wrapper" id="slider">
-        <!-- Images will be added via JavaScript -->
-      </div>
+      <div class="cover-photo-wrapper" id="slider"></div>
       <h1 style="color:red;">WELCOME TO AK CREATION OFFICIAL WEB PAGE</h1>
-      <p>උඩ තියන ටැබ් චෙක් කරලා බලන්න දැනට ඔච්චරයි 🥲                                                             UPDATING......:)</p>
+      <p>උඩ තියන ටැබ් චෙක් කරලා බලන්න දැනට ඔච්චරයි 🥲 UPDATING...... :)</p>
+
+      <!-- Gaming Card -->
+      <div class="game-card" onclick="window.open('https://youtube.com/@sl_ak_gaming_', '_blank')">
+        <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" alt="Gaming Thumbnail">
+        <div class="card-content">
+          <h3>AK GAMING VIDEO</h3>
+          <button>Watch Now</button>
+        </div>
+      </div>
     </section>
 
     <section id="media">

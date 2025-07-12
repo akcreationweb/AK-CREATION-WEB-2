@@ -38,7 +38,6 @@
     header .logo {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
       color: white;
       font-weight: bold;
     }
@@ -53,7 +52,7 @@
     }
 
     nav button {
-      margin: 5px 5px;
+      margin: 5px;
       padding: 8px 16px;
       border: 1px solid red;
       border-radius: 4px;
@@ -116,17 +115,16 @@
 
     .game-card {
       display: flex;
-      border-radius: 0px;
       background-color: #1a1a1a;
       border: 2px solid red;
       box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-      overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       animation: slideFadeIn 0.8s ease-out forwards;
       opacity: 0;
       transform: translateY(30px);
       height: 120px;
+      overflow: hidden;
     }
 
     @keyframes slideFadeIn {
@@ -141,11 +139,6 @@
       box-shadow: 0 10px 20px rgba(255, 0, 0, 0.6);
     }
 
-    .game-card:active {
-      transform: scale(0.97);
-      box-shadow: 0 0 20px red;
-    }
-
     .game-card img {
       width: 45%;
       height: 100%;
@@ -154,7 +147,6 @@
 
     .card-content {
       padding: 12px;
-      color: white;
       width: 55%;
       display: flex;
       flex-direction: column;
@@ -177,14 +169,9 @@
       border-radius: 4px;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.2s ease;
     }
 
-    .card-content button:hover {
-      background-color: #ff3333;
-    }
-
-    .media-buttons {
+    .media-buttons, .documents-buttons {
       display: flex;
       flex-direction: column;
       gap: 15px;
@@ -205,6 +192,13 @@
       text-decoration: none;
       box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
       transition: transform 0.2s ease, box-shadow 0.3s ease;
+      animation: bounceIn 0.6s ease-in-out;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
     }
 
     .gaming-btn img {
@@ -218,33 +212,9 @@
       background-color: #1a1a1a;
     }
 
-    .gaming-btn:active {
-      transform: scale(0.96);
-      box-shadow: 0 0 10px red;
-    }
-
     @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      header .logo img {
-        height: 30px;
-      }
-
-      nav {
-        width: 100%;
-      }
-
       nav button {
         width: 100%;
-        box-sizing: border-box;
-      }
-
-      .gaming-btn {
-        font-size: 1em;
-        justify-content: center;
       }
     }
   </style>
@@ -272,28 +242,28 @@
 
       <div class="cards-grid">
         <div class="game-card" onclick="window.open('https://youtube.com/@sl_ak_gaming_', '_blank')">
-          <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" alt="Gaming 1">
+          <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" />
           <div class="card-content">
             <h3>Gameplay 1</h3>
             <button>Watch</button>
           </div>
         </div>
         <div class="game-card" onclick="window.open('https://youtu.be/zVCW1nlyupI', '_blank')">
-          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_16-38-25.jpg" alt="Gaming 2">
+          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_16-38-25.jpg" />
           <div class="card-content">
             <h3>Gameplay 2</h3>
             <button>Play</button>
           </div>
         </div>
         <div class="game-card" onclick="window.open('https://youtu.be/55tbrehlcLg', '_blank')">
-          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg" alt="Gaming 3">
+          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg" />
           <div class="card-content">
             <h3>Mod Video</h3>
             <button>View</button>
           </div>
         </div>
         <div class="game-card" onclick="window.open('https://chat.whatsapp.com/GTEX4FM9Nf6FMT86pPoPi0', '_blank')">
-          <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/file_000000003c8061fdbd2451cc06d3df4d.png" alt="Gaming 4">
+          <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/file_000000003c8061fdbd2451cc06d3df4d.png" />
           <div class="card-content">
             <h3>Join Group</h3>
             <button>Join</button>
@@ -306,26 +276,24 @@
       <h1 style="color:red;">Media Links</h1>
       <div class="media-buttons">
         <a href="https://youtube.com/@sl_ak_gaming_" target="_blank" class="gaming-btn">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube" />
-          YouTube Channel
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" /> YouTube Channel
         </a>
         <a href="https://wa.me/message/6TOXU6YFLMPHG1" target="_blank" class="gaming-btn">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-          WhatsApp Number
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" /> WhatsApp Number
         </a>
         <a href="https://www.tiktok.com/@_ak_gaming_1_" target="_blank" class="gaming-btn">
-          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/tiktok-6338432_960_720.png" alt="TikTok" />
-          TikTok Page
+          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/tiktok-6338432_960_720.png" /> TikTok Page
         </a>
       </div>
     </section>
 
     <section id="documents">
       <h1 style="color:red;">Documents</h1>
-      <a class="icon-link" href="https://www.mediafire.com/folder/x6qjhmmkllllh/Documents" target="_blank">
-        <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/b955e929305c5934632d9ecfab2f5b30.jpg" alt="Mediafire" />
-        Open Mediafire Folder
-      </a>
+      <div class="documents-buttons">
+        <a href="https://www.mediafire.com/folder/x6qjhmmkllllh/Documents" target="_blank" class="gaming-btn">
+          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/b955e929305c5934632d9ecfab2f5b30.jpg" /> Mediafire Folder
+        </a>
+      </div>
     </section>
   </main>
 </div>
@@ -343,23 +311,18 @@
     });
   });
 
+  const slider = document.getElementById("slider");
   const photos = [
     { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-23.jpg", link: "https://youtu.be/rWqsP6X4Frs" },
     { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg", link: "https://youtu.be/55tbrehlcLg" },
     { url: "https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/2025-07-10_12-09-44.jpg", link: "https://youtu.be/zVCW1nlyupI" },
-    { url: "https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/20250710_135119.png", link: "https://youtube.com/playlist?list=PLebIKH-LXKNXteu4RqbA5TY749DtiZ9ni" },
-    { url: "https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/file_000000003c8061fdbd2451cc06d3df4d.png", link: "https://chat.whatsapp.com/GTEX4FM9Nf6FMT86pPoPi0" },
-    { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_16-38-25.jpg", link: "https://youtu.be/OKdawsug-TY" },
+    { url: "https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/20250710_135119.png", link: "https://youtube.com/playlist?list=PLebIKH-LXKNXteu4RqbA5TY749DtiZ9ni" }
   ];
-
-  const slider = document.getElementById("slider");
   photos.forEach((photo, index) => {
     const img = document.createElement("img");
     img.src = photo.url;
     if (index === 0) img.classList.add("active");
-    img.addEventListener("click", () => {
-      window.open(photo.link, "_blank");
-    });
+    img.addEventListener("click", () => window.open(photo.link, "_blank"));
     slider.appendChild(img);
   });
 

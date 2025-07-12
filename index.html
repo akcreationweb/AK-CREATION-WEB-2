@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     @font-face {
-      font-family: 'HARRYP__.TTF';
-      src: url('https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/HARRYP__.TTF') format('truetype');
+      font-family: 'HarryP';
+      src: url('https://akcreationweb.github.io/AK-CREATION-WEB-PHOTOS/HARRYP__.TTF') format('truetype');
     }
 
     body {
-      font-family: 'UN-Gamunu', Arial, sans-serif;
+      font-family: 'HarryP', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #000;
@@ -35,43 +35,44 @@
       box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
     }
 
-    header .logo {
+    .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-      color: white;
+      gap: 15px; /* more gap for bigger logo & text */
+      font-size: 2em; /* bigger font size */
       font-weight: bold;
-      font-size: 1.4em;
+      color: white;
+      user-select: none;
     }
 
-    header .logo img {
-      height: 50px;
-      border-radius: 8px;
+    .logo img {
+      height: 70px; /* bigger logo */
+      border-radius: 10px;
     }
 
     nav {
       display: flex;
-      gap: 15px;
+      gap: 20px;
       flex-wrap: wrap;
       margin-top: 10px;
     }
 
     nav button {
-      padding: 12px 28px;
-      background: black;
-      border: 2px solid red;
-      color: red;
+      padding: 14px 35px;
+      font-size: 1em;
       font-weight: bold;
-      border-radius: 6px;
+      background: black;
+      color: red;
+      border: 2px solid red;
+      border-radius: 8px;
       cursor: pointer;
       transition: 0.3s ease;
-      font-size: 1em;
-      min-width: 150px;
+      user-select: none;
     }
 
     nav button:hover,
     nav button.active {
-      background: red;
+      background-color: red;
       color: white;
     }
 
@@ -81,7 +82,7 @@
 
     section {
       display: none;
-      animation: fadeIn 0.5s ease;
+      animation: fadeIn 0.6s ease;
     }
 
     section.active {
@@ -89,16 +90,25 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .cover-photo-wrapper {
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       position: relative;
       margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px red;
+      cursor: pointer;
     }
 
     .cover-photo-wrapper img {
@@ -107,8 +117,10 @@
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 1s ease;
-      cursor: pointer;
+      transition: opacity 1s ease-in-out;
+      top: 0;
+      left: 0;
+      border-radius: 10px;
     }
 
     .cover-photo-wrapper img.active {
@@ -117,6 +129,7 @@
 
     h1 {
       color: red;
+      user-select: none;
     }
 
     .cards-grid {
@@ -134,8 +147,8 @@
       overflow: hidden;
       box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
       transition: 0.3s ease;
-      animation: fadeIn 0.6s ease;
       cursor: pointer;
+      user-select: none;
     }
 
     .game-card:hover {
@@ -159,7 +172,7 @@
     .card-content h3 {
       margin: 0;
       color: red;
-      font-size: 1.1em;
+      user-select: none;
     }
 
     .card-content button {
@@ -171,6 +184,12 @@
       font-weight: bold;
       border-radius: 4px;
       cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .card-content button:hover {
+      background-color: #cc0000;
     }
 
     .gaming-btn {
@@ -187,19 +206,12 @@
       text-decoration: none;
       box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
       transition: transform 0.2s ease, box-shadow 0.3s ease;
-      animation: bounceIn 0.5s ease-in-out;
-    }
-
-    @keyframes bounceIn {
-      0% { transform: scale(0.9); opacity: 0; }
-      60% { transform: scale(1.05); opacity: 1; }
-      100% { transform: scale(1); }
+      user-select: none;
     }
 
     .gaming-btn:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6);
-      background-color: #1a1a1a;
     }
 
     .gaming-btn img {
@@ -217,7 +229,6 @@
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
-        gap: 10px;
       }
 
       nav button {
@@ -230,7 +241,7 @@
   <div class="container">
     <header>
       <div class="logo">
-        <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" />
+        <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" alt="AK CREATION Logo" />
         AK CREATION
       </div>
       <nav>
@@ -247,28 +258,28 @@
         <p>උඩ තියන ටැබ් චෙක් කරලා බලන්න දැනට ඔච්චරයි 🥲 UPDATING...... :)</p>
         <div class="cards-grid">
           <div class="game-card" onclick="window.open('https://youtube.com/@sl_ak_gaming_', '_blank')">
-            <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" />
+            <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" alt="Gameplay 1" />
             <div class="card-content">
               <h3>Gameplay 1</h3>
               <button>Watch</button>
             </div>
           </div>
           <div class="game-card" onclick="window.open('https://youtu.be/zVCW1nlyupI', '_blank')">
-            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_16-38-25.jpg" />
+            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_16-38-25.jpg" alt="Gameplay 2" />
             <div class="card-content">
               <h3>Gameplay 2</h3>
               <button>Play</button>
             </div>
           </div>
           <div class="game-card" onclick="window.open('https://youtu.be/55tbrehlcLg', '_blank')">
-            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg" />
+            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg" alt="Mod Video" />
             <div class="card-content">
               <h3>Mod Video</h3>
               <button>View</button>
             </div>
           </div>
           <div class="game-card" onclick="window.open('https://chat.whatsapp.com/GTEX4FM9Nf6FMT86pPoPi0', '_blank')">
-            <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/file_000000003c8061fdbd2451cc06d3df4d.png" />
+            <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/file_000000003c8061fdbd2451cc06d3df4d.png" alt="Join Group" />
             <div class="card-content">
               <h3>Join Group</h3>
               <button>Join</button>
@@ -280,16 +291,16 @@
       <section id="media">
         <h1>Media Links</h1>
         <div class="media-buttons">
-          <a href="https://youtube.com/@sl_ak_gaming_" class="gaming-btn" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" />
+          <a href="https://youtube.com/@sl_ak_gaming_" class="gaming-btn" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube" />
             YouTube Channel
           </a>
-          <a href="https://wa.me/message/6TOXU6YFLMPHG1" class="gaming-btn" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" />
+          <a href="https://wa.me/message/6TOXU6YFLMPHG1" class="gaming-btn" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
             WhatsApp Number
           </a>
-          <a href="https://www.tiktok.com/@_ak_gaming_1_" class="gaming-btn" target="_blank">
-            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/tiktok-6338432_960_720.png" />
+          <a href="https://www.tiktok.com/@_ak_gaming_1_" class="gaming-btn" target="_blank" rel="noopener noreferrer">
+            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/tiktok-6338432_960_720.png" alt="TikTok" />
             TikTok Page
           </a>
         </div>
@@ -298,8 +309,8 @@
       <section id="documents">
         <h1>Documents</h1>
         <div class="documents-buttons">
-          <a href="https://www.mediafire.com/folder/x6qjhmmkllllh/Documents" class="gaming-btn" target="_blank">
-            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/b955e929305c5934632d9ecfab2f5b30.jpg" />
+          <a href="https://www.mediafire.com/folder/x6qjhmmkllllh/Documents" class="gaming-btn" target="_blank" rel="noopener noreferrer">
+            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/b955e929305c5934632d9ecfab2f5b30.jpg" alt="Mediafire" />
             Mediafire Folder
           </a>
         </div>
@@ -315,11 +326,8 @@
       button.addEventListener('click', () => {
         navButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-
-        const tab = button.getAttribute('data-tab');
-        sections.forEach(section => {
-          section.classList.remove('active');
-        });
+        const tab = button.dataset.tab;
+        sections.forEach(section => section.classList.remove('active'));
         document.getElementById(tab).classList.add('active');
       });
     });

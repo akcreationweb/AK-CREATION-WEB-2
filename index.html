@@ -19,50 +19,58 @@
     }
 
     .container {
-      background: rgba(20, 20, 20, 0.95);
       max-width: 1000px;
       margin: auto;
-      padding-bottom: 40px;
+      background-color: #111;
+      padding-bottom: 50px;
     }
 
     header {
       background: #1a1a1a;
-      box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
-      padding: 10px 20px;
+      padding: 15px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
     }
 
     header .logo {
       display: flex;
       align-items: center;
+      gap: 10px;
       color: white;
       font-weight: bold;
+      font-size: 1.4em;
     }
 
     header .logo img {
-      height: 40px;
-      margin-right: 10px;
+      height: 50px;
+      border-radius: 8px;
     }
 
     nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
       margin-top: 10px;
     }
 
     nav button {
-      margin: 5px;
-      padding: 8px 16px;
-      border: 1px solid red;
-      border-radius: 4px;
+      padding: 12px 28px;
       background: black;
+      border: 2px solid red;
       color: red;
+      font-weight: bold;
+      border-radius: 6px;
       cursor: pointer;
+      transition: 0.3s ease;
+      font-size: 1em;
+      min-width: 150px;
     }
 
-    nav button.active,
-    nav button:hover {
+    nav button:hover,
+    nav button.active {
       background: red;
       color: white;
     }
@@ -73,109 +81,96 @@
 
     section {
       display: none;
+      animation: fadeIn 0.5s ease;
     }
 
     section.active {
       display: block;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .cover-photo-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
       position: relative;
       margin-bottom: 20px;
-      border-radius: 8px;
-      overflow: hidden;
-      aspect-ratio: 16 / 9;
-      width: 100%;
-      background: #000;
     }
 
     .cover-photo-wrapper img {
+      position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
       opacity: 0;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 1s ease;
       cursor: pointer;
     }
 
     .cover-photo-wrapper img.active {
       opacity: 1;
-      z-index: 2;
+    }
+
+    h1 {
+      color: red;
     }
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
       margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     .game-card {
       display: flex;
       background-color: #1a1a1a;
       border: 2px solid red;
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      animation: slideFadeIn 0.8s ease-out forwards;
-      opacity: 0;
-      transform: translateY(30px);
-      height: 120px;
+      border-radius: 10px;
       overflow: hidden;
-    }
-
-    @keyframes slideFadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+      transition: 0.3s ease;
+      animation: fadeIn 0.6s ease;
+      cursor: pointer;
     }
 
     .game-card:hover {
       transform: scale(1.03);
-      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.6);
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
     }
 
     .game-card img {
       width: 45%;
-      height: 100%;
       object-fit: cover;
     }
 
     .card-content {
       padding: 12px;
-      width: 55%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      width: 55%;
     }
 
     .card-content h3 {
+      margin: 0;
       color: red;
-      margin: 0 0 8px;
-      font-size: 1em;
+      font-size: 1.1em;
     }
 
     .card-content button {
-      background-color: red;
-      color: white;
+      margin-top: 10px;
       padding: 6px 12px;
-      font-size: 0.85em;
+      background-color: red;
       border: none;
-      border-radius: 4px;
+      color: white;
       font-weight: bold;
+      border-radius: 4px;
       cursor: pointer;
-    }
-
-    .media-buttons, .documents-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 30px;
     }
 
     .gaming-btn {
@@ -192,18 +187,13 @@
       text-decoration: none;
       box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
       transition: transform 0.2s ease, box-shadow 0.3s ease;
-      animation: bounceIn 0.6s ease-in-out;
+      animation: bounceIn 0.5s ease-in-out;
     }
 
     @keyframes bounceIn {
-      0% { transform: scale(0.8); opacity: 0; }
+      0% { transform: scale(0.9); opacity: 0; }
       60% { transform: scale(1.05); opacity: 1; }
       100% { transform: scale(1); }
-    }
-
-    .gaming-btn img {
-      width: 26px;
-      height: 26px;
     }
 
     .gaming-btn:hover {
@@ -212,7 +202,24 @@
       background-color: #1a1a1a;
     }
 
+    .gaming-btn img {
+      width: 26px;
+      height: 26px;
+    }
+
+    .media-buttons, .documents-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
     @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
       nav button {
         width: 100%;
       }
@@ -220,119 +227,126 @@
   </style>
 </head>
 <body>
-
-<div class="container">
-  <header>
-    <div class="logo">
-      <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" alt="Logo" />
-      <span>AK CREATION</span>
-    </div>
-    <nav>
-      <button data-tab="home" class="active">Home</button>
-      <button data-tab="media">Media Links</button>
-      <button data-tab="documents">Documents</button>
-    </nav>
-  </header>
-
-  <main>
-    <section id="home" class="active">
-      <div class="cover-photo-wrapper" id="slider"></div>
-      <h1 style="color:red;">WELCOME TO AK CREATION OFFICIAL WEB PAGE</h1>
-      <p>උඩ තියන ටැබ් චෙක් කරලා බලන්න දැනට ඔච්චරයි 🥲 UPDATING...... :)</p>
-
-      <div class="cards-grid">
-        <div class="game-card" onclick="window.open('https://youtube.com/@sl_ak_gaming_', '_blank')">
-          <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" />
-          <div class="card-content">
-            <h3>Gameplay 1</h3>
-            <button>Watch</button>
-          </div>
-        </div>
-        <div class="game-card" onclick="window.open('https://youtu.be/zVCW1nlyupI', '_blank')">
-          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_16-38-25.jpg" />
-          <div class="card-content">
-            <h3>Gameplay 2</h3>
-            <button>Play</button>
-          </div>
-        </div>
-        <div class="game-card" onclick="window.open('https://youtu.be/55tbrehlcLg', '_blank')">
-          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg" />
-          <div class="card-content">
-            <h3>Mod Video</h3>
-            <button>View</button>
-          </div>
-        </div>
-        <div class="game-card" onclick="window.open('https://chat.whatsapp.com/GTEX4FM9Nf6FMT86pPoPi0', '_blank')">
-          <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/file_000000003c8061fdbd2451cc06d3df4d.png" />
-          <div class="card-content">
-            <h3>Join Group</h3>
-            <button>Join</button>
-          </div>
-        </div>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" />
+        AK CREATION
       </div>
-    </section>
+      <nav>
+        <button class="active" data-tab="home">Home</button>
+        <button data-tab="media">Media Links</button>
+        <button data-tab="documents">Documents</button>
+      </nav>
+    </header>
 
-    <section id="media">
-      <h1 style="color:red;">Media Links</h1>
-      <div class="media-buttons">
-        <a href="https://youtube.com/@sl_ak_gaming_" target="_blank" class="gaming-btn">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" /> YouTube Channel
-        </a>
-        <a href="https://wa.me/message/6TOXU6YFLMPHG1" target="_blank" class="gaming-btn">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" /> WhatsApp Number
-        </a>
-        <a href="https://www.tiktok.com/@_ak_gaming_1_" target="_blank" class="gaming-btn">
-          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/tiktok-6338432_960_720.png" /> TikTok Page
-        </a>
-      </div>
-    </section>
+    <main>
+      <section id="home" class="active">
+        <div class="cover-photo-wrapper" id="slider"></div>
+        <h1>WELCOME TO AK CREATION OFFICIAL WEB PAGE</h1>
+        <p>උඩ තියන ටැබ් චෙක් කරලා බලන්න දැනට ඔච්චරයි 🥲 UPDATING...... :)</p>
+        <div class="cards-grid">
+          <div class="game-card" onclick="window.open('https://youtube.com/@sl_ak_gaming_', '_blank')">
+            <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/IMG-20250614-WA0000.jpg" />
+            <div class="card-content">
+              <h3>Gameplay 1</h3>
+              <button>Watch</button>
+            </div>
+          </div>
+          <div class="game-card" onclick="window.open('https://youtu.be/zVCW1nlyupI', '_blank')">
+            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_16-38-25.jpg" />
+            <div class="card-content">
+              <h3>Gameplay 2</h3>
+              <button>Play</button>
+            </div>
+          </div>
+          <div class="game-card" onclick="window.open('https://youtu.be/55tbrehlcLg', '_blank')">
+            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg" />
+            <div class="card-content">
+              <h3>Mod Video</h3>
+              <button>View</button>
+            </div>
+          </div>
+          <div class="game-card" onclick="window.open('https://chat.whatsapp.com/GTEX4FM9Nf6FMT86pPoPi0', '_blank')">
+            <img src="https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/file_000000003c8061fdbd2451cc06d3df4d.png" />
+            <div class="card-content">
+              <h3>Join Group</h3>
+              <button>Join</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section id="documents">
-      <h1 style="color:red;">Documents</h1>
-      <div class="documents-buttons">
-        <a href="https://www.mediafire.com/folder/x6qjhmmkllllh/Documents" target="_blank" class="gaming-btn">
-          <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/b955e929305c5934632d9ecfab2f5b30.jpg" /> Mediafire Folder
-        </a>
-      </div>
-    </section>
-  </main>
-</div>
+      <section id="media">
+        <h1>Media Links</h1>
+        <div class="media-buttons">
+          <a href="https://youtube.com/@sl_ak_gaming_" class="gaming-btn" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" />
+            YouTube Channel
+          </a>
+          <a href="https://wa.me/message/6TOXU6YFLMPHG1" class="gaming-btn" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" />
+            WhatsApp Number
+          </a>
+          <a href="https://www.tiktok.com/@_ak_gaming_1_" class="gaming-btn" target="_blank">
+            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/tiktok-6338432_960_720.png" />
+            TikTok Page
+          </a>
+        </div>
+      </section>
 
-<script>
-  const buttons = document.querySelectorAll('nav button');
-  const sections = document.querySelectorAll('main section');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const tab = btn.dataset.tab;
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(tab).classList.add('active');
+      <section id="documents">
+        <h1>Documents</h1>
+        <div class="documents-buttons">
+          <a href="https://www.mediafire.com/folder/x6qjhmmkllllh/Documents" class="gaming-btn" target="_blank">
+            <img src="https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/b955e929305c5934632d9ecfab2f5b30.jpg" />
+            Mediafire Folder
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const navButtons = document.querySelectorAll('nav button');
+    const sections = document.querySelectorAll('main section');
+
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const tab = button.getAttribute('data-tab');
+        sections.forEach(section => {
+          section.classList.remove('active');
+        });
+        document.getElementById(tab).classList.add('active');
+      });
     });
-  });
 
-  const slider = document.getElementById("slider");
-  const photos = [
-    { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-23.jpg", link: "https://youtu.be/rWqsP6X4Frs" },
-    { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg", link: "https://youtu.be/55tbrehlcLg" },
-    { url: "https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/2025-07-10_12-09-44.jpg", link: "https://youtu.be/zVCW1nlyupI" },
-    { url: "https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/20250710_135119.png", link: "https://youtube.com/playlist?list=PLebIKH-LXKNXteu4RqbA5TY749DtiZ9ni" }
-  ];
-  photos.forEach((photo, index) => {
-    const img = document.createElement("img");
-    img.src = photo.url;
-    if (index === 0) img.classList.add("active");
-    img.addEventListener("click", () => window.open(photo.link, "_blank"));
-    slider.appendChild(img);
-  });
+    const slider = document.getElementById("slider");
+    const photos = [
+      { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-23.jpg", link: "https://youtu.be/rWqsP6X4Frs" },
+      { url: "https://raw.githubusercontent.com/akcreationweb/AK-CREATION-WEB-PHOTOS/main/2025-07-10_12-08-48.jpg", link: "https://youtu.be/55tbrehlcLg" },
+      { url: "https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/2025-07-10_12-09-44.jpg", link: "https://youtu.be/zVCW1nlyupI" },
+      { url: "https://github.com/akcreationweb/AK-CREATION-WEB-PHOTOS/raw/main/20250710_135119.png", link: "https://youtube.com/playlist?list=PLebIKH-LXKNXteu4RqbA5TY749DtiZ9ni" }
+    ];
 
-  let current = 0;
-  setInterval(() => {
-    const images = slider.querySelectorAll("img");
-    images[current].classList.remove("active");
-    current = (current + 1) % images.length;
-    images[current].classList.add("active");
-  }, 4000);
-</script>
+    photos.forEach((photo, i) => {
+      const img = document.createElement("img");
+      img.src = photo.url;
+      if (i === 0) img.classList.add("active");
+      img.addEventListener("click", () => window.open(photo.link, "_blank"));
+      slider.appendChild(img);
+    });
+
+    let current = 0;
+    setInterval(() => {
+      const images = slider.querySelectorAll("img");
+      images[current].classList.remove("active");
+      current = (current + 1) % images.length;
+      images[current].classList.add("active");
+    }, 4000);
+  </script>
 </body>
 </html>
